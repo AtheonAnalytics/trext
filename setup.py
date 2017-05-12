@@ -7,6 +7,9 @@ setup(name='TRExt',
       author='Vathsala Achar',
       author_email='vathsala@atheon.co.uk',
       license='MIT',
-      packages=['trext']
+      packages=['trext'],
+      install_requires=[
+            'pyodbc',
+      ]
 )
 

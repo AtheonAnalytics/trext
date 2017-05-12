@@ -7,7 +7,7 @@ serve visual content without having to compete for resources while refreshing ex
 
 The dependencies are:
 
-- TableauSDK
+- [TableauSDK](https://onlinehelp.tableau.com/current/api/sdk/en-us/SDK/tableau_sdk_installing.htm)
 - pyodbc
  
  
