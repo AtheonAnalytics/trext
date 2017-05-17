@@ -24,7 +24,7 @@ _type['VARCHAR'] = Type.UNICODE_STRING
 _type['CHAR'] = Type.CHAR_STRING
 _type['DATE'] = Type.DATE
 _type['BOOLEAN'] = Type.BOOLEAN
-_type['DATE'] = Type.DATE
+_type['TIMESTAMP'] = Type.DATETIME
 
 
 def get_type(db_type):
