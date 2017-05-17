@@ -42,7 +42,7 @@ class Extract(object):
         """
         Publish to Tableau Server (overwrites existing extract)
 
-        >>> tableau_auth_details = ("usename", "password")
+        >>> tableau_auth_details = ("username", "password")
         >>> publish_details = ("site_content_url", "project_name")
         >>> tde.publish("tableau server address", auth=tableau_auth_details, params=publish_details)
         Published!
