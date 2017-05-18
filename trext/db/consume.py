@@ -4,15 +4,26 @@ from trext.extract.utils import get_db_components
 
 class DBConsumer(object):
     """
-    Pulls the db/view metadata and data from the database. 
+    Pulls the view/table metadata and data from the database. 
     """
 
     def __init__(self, cursor, view_or_table_name, dbtype):
+        """
+        :param cursor: db cursor with connection to database 
+        :param view_or_table_name: to pull metadata of and data from the view/table 
+        :param dbtype: type of db to connect to - currently only supports `None`(default - MSSQL) 
+        and `exasol`
+        """
         self._cursor = cursor
         self._dbtype = dbtype
         self._db, self._schema, self._table = get_db_components(view_or_table_name)
 
     def _get_db_column_metadata(self):
+        """
+        Based on the `dbtype` the view/table metadata is returned  
+        
+        :return: metadata of the columns in the view/table
+        """
         res = None
         # default None is mssql
         if not self._dbtype:
@@ -28,6 +39,11 @@ class DBConsumer(object):
         return res
 
     def _get_db_data(self):
+        """
+        Based on the `dbtype` the view/table data is returned
+        
+        :return: data of the columns in the view/table
+        """
         res = None
         if not self._dbtype:
             res = self._cursor.execute('''SELECT * FROM %s.%s.%s
@@ -38,6 +54,11 @@ class DBConsumer(object):
         return res
 
     def get_table_definition(self):
+        """
+        Generator that returns the column name, type and the column position of the view/table.  
+        
+        :return: column name, column position, column type
+        """
         res = self._get_db_column_metadata()
         try:
             position = 1
@@ -56,6 +77,11 @@ class DBConsumer(object):
             raise e
 
     def get_table_data(self):
+        """
+        Generator that returns the data row by row of the view/table.
+        
+        :return: row of data
+        """
         try:
             res = self._get_db_data()
             while True:
