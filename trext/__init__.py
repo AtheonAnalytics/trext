@@ -27,4 +27,4 @@ server-client-python library to get the datasource names that need refreshing.
 
 """
 
-from extract import Extract
+from api import Extract
