@@ -26,7 +26,7 @@ class Tableau(object):
         if not datasource_name:
             datasource_name = self._get_extract_name(tde_path)
         self.server.publishExtract(tde_path, project_name, datasource_name, overwrite)
-        print "Published!"
+        return "Published!"
 
     def close(self):
         self.server.disconnect()
