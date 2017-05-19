@@ -24,5 +24,6 @@ setup(name='TRExt',
       ],
       install_requires=[
           'pyodbc',
+          'mock',
       ]
       )
