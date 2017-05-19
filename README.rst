@@ -7,6 +7,10 @@ Tableau Refresh Extract (Externally)
 TRExt is a means to refresh a Tableau Extract (.tde files) externally so the Tableau Server can 
 serve visual content without having to compete for resources while refreshing extracts internally.
 
+
+Dependencies
+````````````
+
 The main dependencies are:
 
 - `Tableau SDK <https://onlinehelp.tableau.com/current/api/sdk/en-us/SDK/tableau_sdk_installing.htm>`_
@@ -14,8 +18,34 @@ The main dependencies are:
 
 The repo also supports
 
-- any other pyodbc wrapper such as `EXASol Python SDK <https://www.exasol.com/portal/display/DOWNLOAD/5.0>`_
- 
+- pyodbc wrapper such as `EXASol Python SDK <https://www.exasol.com/portal/display/DOWNLOAD/5.0>`_
+
+
+Usage
+`````
+
+Create an extract
+
+    >>> import trext
+    >>> tde = trext.Extract()
+    >>> connection_string = "appropriate db connection string"
+    >>> tde.create("db.schema.table", conn_string=connection_string, dbtype='exasol')
+    Created!
+    >>> tde.location
+    /temp/extract.tde
+
+
+Publish to Tableau Server (overwrites existing extract)
+
+    >>> tableau_auth_details = ("username", "password")
+    >>> publish_details = ("site_content_url", "project_name")
+    >>> tde.publish("tableau server address", auth=tableau_auth_details, params=publish_details)
+    Published!
+
+Refreshing an extract is now replaced with creating and publishing an extract.
+You can use this is conjunction with TabAuto (not yet open source) or with Tableau's
+`server-client-python <https://github.com/tableau/server-client-python>`_ library to get the datasource names that need refreshing.
+
 ------------------
 
 Disclaimer
