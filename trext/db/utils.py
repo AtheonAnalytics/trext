@@ -1,5 +1,7 @@
 import time
 
+from datetime import date, datetime
+
 
 def format_datetime(datetime_to_format):
     """
@@ -25,3 +27,11 @@ def format_date(date_to_format):
     """
     date_to_format = str(date_to_format)
     return time.strptime(date_to_format, '%Y-%m-%d')[:3]
+
+
+def get_fake_date():
+    return date(1900, 1, 1)
+
+
+def get_fake_datetime():
+    return datetime(1900, 1, 1, 0, 0, 0, 0)

@@ -1,7 +1,7 @@
 from unittest import TestCase
 from datetime import date, datetime
 
-from trext.db.utils import format_date, format_datetime
+from trext.db.utils import format_date, format_datetime, get_fake_date, get_fake_datetime
 
 
 class TestDateFormat(TestCase):
@@ -41,3 +41,19 @@ class TestDatetimeFormat(TestCase):
 
     def test_date_failure(self):
         self.assertRaises(ValueError, lambda: format_datetime(self.date_to_fail))
+
+
+def test_fake_date():
+    assert get_fake_date().year == 1900
+    assert get_fake_date().month == 01
+    assert get_fake_date().day == 01
+
+
+def test_fake_datetime():
+    assert get_fake_datetime().year == 1900
+    assert get_fake_datetime().month == 01
+    assert get_fake_datetime().day == 01
+    assert get_fake_datetime().hour == 0
+    assert get_fake_datetime().minute == 0
+    assert get_fake_datetime().second == 0
+    assert get_fake_datetime().microsecond == 0
