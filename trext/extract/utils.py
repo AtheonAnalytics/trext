@@ -22,3 +22,15 @@ def get_db_components(db_table_or_view):
     schema = schema.replace('[', '').replace(']', '')
     table = table.replace('[', '').replace(']', '')
     return db, schema, table
+
+
+def get_extract_name(extract_path):
+    """
+    Get the name of the extract in the format - name.tde
+
+    :param extract_path: Path where the extract sits
+    :return: 
+    """
+    extract_name_regex = re.compile("(\w*).tde$")
+    extract_name = extract_name_regex.findall(extract_path)[0]
+    return extract_name
