@@ -6,7 +6,7 @@ from tableausdk.Extract import Extract, TableDefinition
 from trext.db.conn import AnyDB
 from trext.db.consume import DBConsumer
 from trext.db.fill import ExtractFiller
-from trext.extract.utils import get_extract_name
+from trext.extract.utils import get_db_components
 
 
 class ExtractBuilder(object):
@@ -30,7 +30,7 @@ class ExtractBuilder(object):
         creates a temporary directory and defines the tde path as temp_dir+view_or_table_name.tde
         """
         temp_dir_path = tempfile.mkdtemp()
-        extract_name = get_extract_name(self._view_or_table_name)
+        _, __, extract_name = get_db_components(self._view_or_table_name)
         file_name = "{}.tde".format(extract_name)
         self._tde_path = os.path.join(temp_dir_path, file_name)
 
