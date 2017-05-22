@@ -1,5 +1,3 @@
-from datetime import datetime, date
-
 from tableausdk.Exceptions import TableauException
 from tableausdk.Extract import Row
 from tableausdk.Types import Type
@@ -29,10 +27,10 @@ class ExtractFiller(object):
     def _replace_null(col_type, col_data):
         """
         Replaces the null data with values based on type. Eg: 0 if integer and 0.0 if float.
+        If there is no null data then it returns the existing value, col_data.
         
         Note:
         1. This will need more suitable values as db NULLs are more useful than a replaced value.
-        2. A switch-case type statement might (will most certainly?) be more efficient
         
         :param col_type: type of the column to decide what value to replace
         :param col_data: the value in the column that needs checking
