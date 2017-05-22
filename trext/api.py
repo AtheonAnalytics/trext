@@ -16,6 +16,18 @@ class Extract(object):
         >>> connection_string = "appropriate db connection string"
         >>> tde.create("db.schema.table", conn_string=connection_string)
         Created!
+        >>> tde.location
+        /temp/extract.tde
+        
+        Publish to Tableau Server (overwrites existing extract)
+        
+        >>> tableau_auth_details = ("username", "password")
+        >>> publish_details = ("site_content_url", "project_name")
+        >>> tde.publish("tableau server address", auth=tableau_auth_details, params=publish_details)
+        Published!
+        
+        Clean up after create and/or publish
+        >>> tde.close()
     """
 
     def __init__(self, is_temp=True):
