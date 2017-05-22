@@ -26,16 +26,6 @@ class Extract(object):
         self._location = None
         self._is_temp = is_temp
 
-    def __exit__(self):
-        """
-        Clean up on exit. Delete the extract only if temporary flag is True
-        
-        :return: if it is not a temporary extract 
-        """
-        if not self._is_temp:
-            return
-        os.remove(self.location)
-
     def create(self, view_or_table_name, conn_string, dbtype=None):
         """
         Method to create an extract based on a view or a table on a database
@@ -90,3 +80,13 @@ class Extract(object):
         ts.publish(self.location, project_name)
         # close connection to server
         ts.close()
+
+    def close(self):
+        """
+        Clean up on exit. Delete the extract only if temporary flag is True
+        
+        :return: if it is not a temporary extract 
+        """
+        if not self._is_temp:
+            return
+        os.remove(self.location)
