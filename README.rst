@@ -26,6 +26,8 @@ Usage
 
 Create an extract
 
+.. code-block:: python
+
     >>> import trext
     >>> tde = trext.Extract()
     >>> connection_string = "appropriate db connection string"
@@ -36,6 +38,8 @@ Create an extract
 
 
 Publish to Tableau Server (overwrites existing extract)
+
+.. code-block:: python
 
     >>> tableau_auth_details = ("username", "password")
     >>> publish_details = ("site_content_url", "project_name")
