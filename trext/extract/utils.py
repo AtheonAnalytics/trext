@@ -1,5 +1,7 @@
 import re
 
+from trext.extract.exceptions import NotExtractPathError
+
 
 def get_db_components(db_table_or_view):
     """
@@ -32,5 +34,8 @@ def get_extract_name(extract_path):
     :return: 
     """
     extract_name_regex = re.compile("(\w*).tde$")
-    extract_name = extract_name_regex.findall(extract_path)[0]
+    try:
+        extract_name = extract_name_regex.findall(extract_path)[0]
+    except IndexError:
+        raise NotExtractPathError
     return extract_name

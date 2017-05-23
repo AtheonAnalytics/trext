@@ -2,6 +2,8 @@ from unittest import TestCase
 from datetime import date, datetime
 
 from trext.db.utils import format_date, format_datetime, get_fake_date, get_fake_datetime
+from trext.extract.exceptions import NotExtractPathError
+from trext.extract.utils import get_extract_name, get_db_components
 
 
 class TestDateFormat(TestCase):
@@ -57,3 +59,31 @@ def test_fake_datetime():
     assert get_fake_datetime().minute == 0
     assert get_fake_datetime().second == 0
     assert get_fake_datetime().microsecond == 0
+
+
+class TestDBComponents(TestCase):
+    def test_get_db_component_parts(self):
+        components = get_db_components("some_db.some_schema.some_table")
+        self.assertEqual(components, ("some_db", "some_schema", "some_table"))
+        components = get_db_components("some_schema.some_table")
+        self.assertEqual(components, (None, "some_schema", "some_table"))
+
+    def test_get_db_component_exception(self):
+        self.assertRaises(NotImplementedError,
+                          lambda: get_db_components("some_table"))
+
+        self.assertRaises(NotImplementedError,
+                          lambda: get_db_components(
+                              "some_db.some_node.some_schema.some_table"))
+
+
+class TestExtractName(TestCase):
+    def test_get_extract_name_from_tde(self):
+        tde_path = "path/to/some/extract.tde"
+        extract = get_extract_name(tde_path)
+        assert extract == 'extract'
+
+    def test_get_extract_name_from_non_tde(self):
+        not_tde_path = "path/to/some/extract.someotherextension"
+        self.assertRaises(NotExtractPathError,
+                          lambda: get_extract_name(not_tde_path))

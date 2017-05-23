@@ -26,9 +26,3 @@ class AnyDB(object):
 
     def close(self):
         self._db_connection.close()
-
-
-if __name__ == '__main__':
-    db_conn = AnyDB("DSN=exaro", dbtype='exasol')
-    cursor = db_conn.get_cursor()
-    db_conn.close()
