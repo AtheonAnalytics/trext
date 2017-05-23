@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 This is the entry point for the library
 
@@ -26,5 +27,10 @@ You can use this is conjunction with TabAuto (not yet open source) or with Table
 server-client-python library to get the datasource names that need refreshing.
 
 """
+
+__title__ = 'trext'
+__version__ = '0.1'
+__author__ = 'Vathsala Achar'
+__license__ = 'MIT'
 
 from api import Extract
