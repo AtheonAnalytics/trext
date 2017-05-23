@@ -80,6 +80,7 @@ class Extract(object):
         :param host_address: Address of the Tableau server to publish to
         :param auth: a tuple of username and password for authentication
         :param params: currently a typle of two parameters: site to publish to and project name
+        :return: Message on completing publishing
         """
         # create tableau server instance
         ts = server.Tableau()
@@ -92,6 +93,7 @@ class Extract(object):
         ts.publish(self.location, project_name)
         # close connection to server
         ts.close()
+        return "Published!"
 
     def close(self):
         """

@@ -37,12 +37,10 @@ class Tableau(object):
         :param project_name: name of project on the Tableau site to publish to 
         :param datasource_name: the name of the .tde to publish as
         :param overwrite: boolean to flag if the .tde needs an overwrite when publishing
-        :return: Message on completing publishing
         """
         if not datasource_name:
             datasource_name = get_extract_name(tde_path)
         self.server.publishExtract(tde_path, project_name, datasource_name, overwrite)
-        return "Published!"
 
     def close(self):
         """
