@@ -22,6 +22,8 @@ setup(name='TRExt',
           'trext.db',
           'trext.extract'
       ],
+      test_suite='nose.collector',
+      tests_require=['nose'],
       install_requires=[
           'pyodbc',
           'mock',
