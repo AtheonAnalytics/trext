@@ -29,7 +29,7 @@ server-client-python library to get the datasource names that need refreshing.
 """
 
 __title__ = 'trext'
-__version__ = '0.1'
+__version__ = '0.2.0'
 __author__ = 'Vathsala Achar'
 __license__ = 'MIT'
 
