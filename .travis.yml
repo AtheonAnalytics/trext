@@ -14,14 +14,12 @@ before_install:
   - tar -xzvf Tableau-SDK-Python-Linux-64Bit-10-1-4.tar.gz
   - cd $TRAVIS_BUILD_DIR/vendor/Tableau*/
   - python setup.py install
+  - cd $TRAVIS_BUILD_DIR
   - sudo apt-get install unixodbc-dev
   - sudo apt-get install python-pyodbc
 
-env:
-  - TOXENV=py27
-
 install:
-  - pip install -U tox
+  - pip install -r $TRAVIS_BUILD_DIR/requirements.txt
 
 script:
-  - tox
+  - nosetests

@@ -31,10 +31,15 @@ def get_type(db_type):
     eg: CHAR(8)  
     :return: Tableau SDK Type if it exists  
     """
-    # todo needs error handling
-    return next(iter(tm for key, tm in _type.iteritems() if db_type.lower().startswith(key)), None)
+    mapped_type = [tm for key, tm in _type.iteritems() if db_type.lower().startswith(key)]
+    if len(mapped_type) == 1:  # one match
+        return mapped_type[0]
+    elif len(mapped_type) == 0:  # no match
+        return None
+    else:  # multiple matches
+        return next(iter(tm for key, tm in _type.iteritems() if db_type.lower() == key), None)
 
 
 if __name__ == '__main__':
     print get_type('DECIMAL(18,2)')
-    print get_type('date')
+    print get_type('datetime')
