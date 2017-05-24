@@ -1,3 +1,7 @@
+.. image:: https://travis-ci.org/AtheonAnalytics/trext.svg?branch=master
+    :target: https://travis-ci.org/AtheonAnalytics/trext
+
+
 TRExt
 =====
 
