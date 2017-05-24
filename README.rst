@@ -1,6 +1,11 @@
 .. image:: https://travis-ci.org/AtheonAnalytics/trext.svg?branch=master
     :target: https://travis-ci.org/AtheonAnalytics/trext
 
+.. image:: https://badge.fury.io/py/TRExt.svg
+    :target: https://badge.fury.io/py/TRExt
+
+.. image:: https://coveralls.io/repos/github/AtheonAnalytics/trext/badge.svg?branch=master
+    :target: https://coveralls.io/github/AtheonAnalytics/trext?branch=master
 
 TRExt
 =====
@@ -23,6 +28,31 @@ The main dependencies are:
 The repo also supports
 
 - pyodbc wrapper such as `EXASol Python SDK <https://www.exasol.com/portal/display/DOWNLOAD/5.0>`_
+
+
+Installation
+````````````
+
+You need `pip` to install TRExt.
+
+You can install the latest version of the package straight from PyPI using:
+
+.. code-block:: bash
+
+    $ pip install trext
+
+
+You can also directly install from GitHub directly using:
+
+.. code-block:: bash
+
+    $ pip install git+git@github.com:AtheonAnalytics/trext.git
+
+or
+
+.. code-block:: bash
+
+    $ pip install git+https://github.com/AtheonAnalytics/trext.git
 
 
 Usage

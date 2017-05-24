@@ -20,6 +20,11 @@ before_install:
 
 install:
   - pip install -r $TRAVIS_BUILD_DIR/requirements.txt
+  - pip install nose coverage
+  - pip install coveralls
 
 script:
-  - nosetests
+  - python setup.py nosetests --with-coverage --cover-package trext
+
+after_success:
+  - coveralls
