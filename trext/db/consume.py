@@ -30,7 +30,7 @@ class DBConsumer(object):
             res = self._cursor.execute('''
             SELECT      COLUMN_NAME, DATA_TYPE, ORDINAL_POSITION
             FROM        %s.INFORMATION_SCHEMA.COLUMNS
-            WHERE        (TABLE_SCHEMA = '?') and (TABLE_NAME = '?')
+            WHERE        (TABLE_SCHEMA = ?) and (TABLE_NAME = ?)
             ORDER BY ORDINAL_POSITION
             ''' % self._db, (self._schema, self._table))
         elif self._dbtype == 'exasol':
