@@ -1,16 +1,38 @@
-.. TRExt documentation master file, created by
-   sphinx-quickstart on Tue May 23 16:11:10 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+TRExt: Documentation
+====================
 
-Welcome to TRExt's documentation!
-=================================
+
+.. image:: https://travis-ci.org/AtheonAnalytics/trext.svg?branch=master
+    :target: https://travis-ci.org/AtheonAnalytics/trext
+
+.. image:: https://badge.fury.io/py/TRExt.svg
+    :target: https://badge.fury.io/py/TRExt
+
+.. image:: https://coveralls.io/repos/github/AtheonAnalytics/trext/badge.svg?branch=master
+    :target: https://coveralls.io/github/AtheonAnalytics/trext?branch=master
+
+-------------------------------
+
+TRExt is short for Tableau Refresh Extract (Externally).
+
+TRExt provides an API to create a .tde extract from a database and publish to a Tableau Server,
+and this does not need the Tableau Desktop to set up.
+
+This documentation contains instructions on how to best use TRExt with your database, as well as
+the API documentation if you want to get into the details.
+
+The repository is available on `GitHub <https://github.com/AtheonAnalytics/trext>`_ if you wish
+to fork, contribute or just install and play around.
+
+
+Contents
+========
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    readme
+   api/instructions
    modules
 
 
