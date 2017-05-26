@@ -95,8 +95,10 @@ You can use this is conjunction with TabAuto (not yet open source) or with Table
 Documentation
 `````````````
 
-More detailed documentation is available at `trext.rtfd.io <trext.rtfd.io>`_
+More detailed documentation is available at `http://trext.rtfd.io <http://trext.rtfd.io>`_
 
+
+------------------
 
 Disclaimer
 ``````````
