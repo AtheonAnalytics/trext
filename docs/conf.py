@@ -19,8 +19,9 @@
 import os
 import sys
 import shlex
-sys.path.insert(0, os.path.abspath('../'))
+from mock import MagicMock
 
+sys.path.insert(0, os.path.abspath('../'))
 
 # -- General configuration ------------------------------------------------
 
@@ -82,6 +83,19 @@ pygments_style = 'sphinx'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+
+# -- Options for autodoc -------------------------------------------------
+
+class Mock(MagicMock):
+    @classmethod
+    def __getattr__(cls, name):
+        return MagicMock()
+
+
+MOCK_MODULES = ['pyodbc', 'tableausdk', 'tableausdk.Server', 'tableausdk.Extract',
+                'tableausdk.Exceptions', 'tableausdk.Types']
+sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 
 # -- Options for HTML output ----------------------------------------------
 
@@ -153,6 +167,7 @@ texinfo_documents = [
      author, 'TRExt', 'One line description of project.',
      'Miscellaneous'),
 ]
+
 
 # Example configuration for intersphinx: refer to the Python standard library.
 # intersphinx_mapping = {'https://docs.python.org/': None}
