@@ -6,6 +6,11 @@
 
 .. image:: https://coveralls.io/repos/github/AtheonAnalytics/trext/badge.svg?branch=master
     :target: https://coveralls.io/github/AtheonAnalytics/trext?branch=master
+    
+.. image:: https://readthedocs.org/projects/trext/badge/?version=latest
+    :target: http://trext.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+                
 
 TRExt
 =====
@@ -86,6 +91,12 @@ You can use this is conjunction with TabAuto (not yet open source) or with Table
 `server-client-python <https://github.com/tableau/server-client-python>`_ library to get the datasource names that need refreshing.
 
 ------------------
+
+Documentation
+`````````````
+
+More detailed documentation is available at `trext.rtfd.io <trext.rtfd.io>`_
+
 
 Disclaimer
 ``````````
